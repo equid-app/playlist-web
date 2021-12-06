@@ -43,7 +43,7 @@ const usePlayList = (): UsePlayListReturnType => {
             const { ethereum }: any = window
             if (ethereum) {
                 const provider = new ethers.providers.Web3Provider(ethereum)
-                const signer = provider.getSigner()
+                const signer =  await provider.getSigner()
                 const playListPortalContract = new ethers.Contract(contractAddress, contractABI, signer);
                 let list = await playListPortalContract.getPlayListItems();
                 console.log("Retrieved total playlist count...", list);

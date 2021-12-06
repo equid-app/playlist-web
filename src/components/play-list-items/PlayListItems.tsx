@@ -15,12 +15,9 @@ export default function PlayListItems() {
 
 
     useEffect(() => {
-        async function fetchData() {
-            let res = await getContractList()
-            setItems(res)
-        }
-        fetchData();
-    })
+        getContractList().then(data => setItems(data));
+
+    }, []);
 
 
     return (
